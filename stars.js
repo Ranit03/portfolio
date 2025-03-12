@@ -1,24 +1,30 @@
 const canvas = document.getElementById('starCanvas');
 const ctx = canvas.getContext('2d');
 
-// Set canvas size to window size
 function resizeCanvas() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 }
 
-// Initial resize
 resizeCanvas();
-
-// Resize canvas when window is resized
 window.addEventListener('resize', resizeCanvas);
 
-// Star properties
 const stars = [];
-const numStars = 200;
-const maxDistance = 150;
+const numStars = 150; // Reduced number of stars
+const maxDistance = 150; // Connection distance
+const mouseRadius = 150; // Mouse interaction radius
 
-// Star class
+let mouse = {
+    x: undefined,
+    y: undefined
+};
+
+// Track mouse movement
+window.addEventListener('mousemove', (event) => {
+    mouse.x = event.x;
+    mouse.y = event.y;
+});
+
 class Star {
     constructor() {
         this.reset();
@@ -27,18 +33,33 @@ class Star {
     reset() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 1.5;
+        this.vx = (Math.random() - 0.5) * 0.3; // Slower movement
+        this.vy = (Math.random() - 0.5) * 0.3; // Slower movement
+        this.radius = Math.random() * 1.5 + 0.5; // Slightly larger stars
     }
 
     update() {
+        // Move stars
         this.x += this.vx;
         this.y += this.vy;
 
         // Wrap around screen
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height) this.y = 0;
+
+        // Mouse interaction
+        if (mouse.x && mouse.y) {
+            const dx = mouse.x - this.x;
+            const dy = mouse.y - this.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < mouseRadius) {
+                const angle = Math.atan2(dy, dx);
+                this.x -= Math.cos(angle) * 0.5;
+                this.y -= Math.sin(angle) * 0.5;
+            }
+        }
     }
 
     draw() {
@@ -54,33 +75,31 @@ for (let i = 0; i < numStars; i++) {
     stars.push(new Star());
 }
 
-// Draw lines between nearby stars
 function drawLines() {
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
-    ctx.lineWidth = 0.5;
-
-    for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-            const dx = stars[i].x - stars[j].x;
-            const dy = stars[i].y - stars[j].y;
+    stars.forEach((star1, i) => {
+        stars.slice(i + 1).forEach(star2 => {
+            const dx = star1.x - star2.x;
+            const dy = star1.y - star2.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < maxDistance) {
+                // Calculate line opacity based on distance
+                const opacity = 1 - (distance / maxDistance);
+                ctx.strokeStyle = `rgba(117, 78, 249, ${opacity * 0.5})`; // Using your main color
+                ctx.lineWidth = opacity * 2;
                 ctx.beginPath();
-                ctx.moveTo(stars[i].x, stars[i].y);
-                ctx.lineTo(stars[j].x, stars[j].y);
+                ctx.moveTo(star1.x, star1.y);
+                ctx.lineTo(star2.x, star2.y);
                 ctx.stroke();
             }
-        }
-    }
+        });
+    });
 }
 
-// Animation loop
 function animate() {
-    ctx.fillStyle = 'rgba(13, 17, 23, 0.1)';
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.3)'; // More transparent background
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    // Update and draw stars
     stars.forEach(star => {
         star.update();
         star.draw();
