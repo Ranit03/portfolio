@@ -64,3 +64,81 @@ const typed = new Typed('.multiple-text', {
     backDelay: 1000,
     loop: true
 });
+// Custom cursor effect
+const cursor = document.querySelector('.cursor');
+const cursorInner = document.querySelector('.cursor-inner');
+let isStuck = false;
+let mouseDown = false;
+
+const getMousePos = (e) => {
+    let posx = 0;
+    let posy = 0;
+
+    if (!e) e = window.event;
+    if (e.pageX || e.pageY) {
+        posx = e.pageX;
+        posy = e.pageY;
+    } else if (e.clientX || e.clientY) {
+        posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+        posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    return {
+        x: posx,
+        y: posy
+    };
+};
+
+// Mouse move animation
+document.addEventListener('mousemove', (e) => {
+    const mousePos = getMousePos(e);
+    
+    // Animate cursor
+    cursor.style.transform = `translate3d(${mousePos.x - cursor.offsetWidth/2}px, ${mousePos.y - cursor.offsetHeight/2}px, 0)`;
+    
+    // Animate cursor inner
+    cursorInner.style.transform = `translate3d(${mousePos.x - cursorInner.offsetWidth/2}px, ${mousePos.y - cursorInner.offsetHeight/2}px, 0)`;
+});
+
+// Add hover effect for interactive elements
+document.querySelectorAll('a, button, .btn').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        cursor.style.transform = `translate3d(${mousePos.x - cursor.offsetWidth/2}px, ${mousePos.y - cursor.offsetHeight/2}px, 0) scale(1.5)`;
+        cursor.style.borderColor = 'rgba(117, 78, 249, 0.5)';
+    });
+    
+    el.addEventListener('mouseleave', () => {
+        cursor.style.transform = `translate3d(${mousePos.x - cursor.offsetWidth/2}px, ${mousePos.y - cursor.offsetHeight/2}px, 0) scale(1)`;
+        cursor.style.borderColor = 'var(--main-color)';
+    });
+});
+
+// Mouse down effect
+document.addEventListener('mousedown', () => {
+    mouseDown = true;
+    cursor.style.transform = `translate3d(${mousePos.x - cursor.offsetWidth/2}px, ${mousePos.y - cursor.offsetHeight/2}px, 0) scale(0.8)`;
+    cursorInner.style.transform = `translate3d(${mousePos.x - cursorInner.offsetWidth/2}px, ${mousePos.y - cursorInner.offsetHeight/2}px, 0) scale(0.8)`;
+});
+
+document.addEventListener('mouseup', () => {
+    mouseDown = false;
+    cursor.style.transform = `translate3d(${mousePos.x - cursor.offsetWidth/2}px, ${mousePos.y - cursor.offsetHeight/2}px, 0) scale(1)`;
+    cursorInner.style.transform = `translate3d(${mousePos.x - cursorInner.offsetWidth/2}px, ${mousePos.y - cursorInner.offsetHeight/2}px, 0) scale(1)`;
+});
+
+// Hide cursor when leaving window
+document.addEventListener('mouseleave', () => {
+    cursor.style.display = 'none';
+    cursorInner.style.display = 'none';
+});
+
+document.addEventListener('mouseenter', () => {
+    cursor.style.display = 'block';
+    cursorInner.style.display = 'block';
+});
+
+// Disable cursor on touch devices
+if ('ontouchstart' in window) {
+    cursor.style.display = 'none';
+    cursorInner.style.display = 'none';
+}
