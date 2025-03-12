@@ -4,112 +4,217 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ranit Nandi - AI Training & Technical Specialist</title>
+    
+    <!-- CSS Files -->
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <h1>Ranit Nandi</h1>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Ranit.</a>
+        
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Ranit Nandi</h1>
-            <h2>AI Training & Applied Sciences Specialist</h2>
-            <p>Tech-savvy professional specializing in AI training, applied mathematics, and technical content creation</p>
-            <a href="#contact" class="cta-button">Get in Touch</a>
-        </div>
+        <div class="bx bx-moon" id="darkMode-icon"></div>
+        <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, I am</h3>
+            <h1>Ranit Nandi</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>Tech-savvy professional specializing in AI training, applied mathematics, and technical content creation</p>
+            
+            <div class="social-media">
+                <a href="https://in.linkedin.com/in/ranit-nandi-b3396a255" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://github.com/Ranit03" target="_blank"><i class="bx bxl-github"></i></a>
+            </div>
+        </div>
+
+        <div class="home-img">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamMzaDNkaHBqcHBqaWd4Z2MyZm04MGd4anp1aTIzdThjbzFrdmduNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MD0svLSDeudszrNrp0/giphy.gif" alt="Coding Animation">
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="https://img.freepik.com/free-vector/artificial-intelligence-ai-robot-server-room-digital-technology-banner_39422-767.jpg" alt="AI Training Illustration">
+        </div>
         <div class="about-content">
-            <p>I am a results-driven professional in AI training and applied sciences with strong foundations in competitive coding, mathematics, and physics. Through remote workshops and technical writing, I've developed excellent communication skills to engage diverse audiences and deliver impactful results.</p>
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>AI Training Specialist & Technical Expert</h3>
+            <p>I am a results-driven professional in AI training and applied sciences with strong foundations in competitive coding, mathematics, and physics. Currently pursuing Bachelor of Technology from IIT ISM Dhanbad, one of India's premier technical institutions. Through remote workshops and technical writing, I've developed excellent communication skills to engage diverse audiences and deliver impactful results.</p>
+            <a href="#" class="btn">Read More</a>
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience">
-        <h2>Professional Experience</h2>
-        <div class="experience-grid">
-            <div class="experience-card">
+    <section class="experience" id="experience">
+        <h2 class="heading">My <span>Journey</span></h2>
+        
+        <div class="experience-container">
+            <div class="experience-box">
+                <i class='bx bx-code-block'></i>
                 <h3>AI Training & Applied Sciences Consultant</h3>
                 <p class="company">Global AI Training Solutions</p>
                 <p class="duration">01/2020 - 12/2022 | Remote</p>
                 <ul>
-                    <li>Developed comprehensive AI training curriculum</li>
-                    <li>Led remote coding workshops for 100+ participants</li>
-                    <li>Integrated applied mathematics into AI systems</li>
+                    <li>Developed comprehensive AI training curriculum for industry professionals</li>
+                    <li>Led remote coding workshops for 100+ participants globally</li>
+                    <li>Integrated advanced applied mathematics concepts into AI systems</li>
+                    <li>Created technical documentation and training materials</li>
+                    <li>Achieved 95% positive feedback from workshop participants</li>
                 </ul>
             </div>
-            <!-- Add other experience cards similarly -->
+
+            <div class="experience-box">
+                <i class='bx bx-data'></i>
+                <h3>Data Science Team Lead</h3>
+                <p class="company">Tech Innovations Lab</p>
+                <p class="duration">06/2018 - 12/2019 | Hybrid</p>
+                <ul>
+                    <li>Led a team of 5 data scientists on machine learning projects</li>
+                    <li>Implemented advanced ML algorithms for predictive analytics</li>
+                    <li>Reduced processing time by 40% through optimization</li>
+                    <li>Mentored junior data scientists and interns</li>
+                    <li>Published 3 research papers in leading tech journals</li>
+                </ul>
+            </div>
+
+            <div class="experience-box">
+                <i class='bx bx-brain'></i>
+                <h3>Machine Learning Engineer</h3>
+                <p class="company">AI Solutions Corp</p>
+                <p class="duration">01/2017 - 05/2018 | On-site</p>
+                <ul>
+                    <li>Developed and deployed ML models for production environments</li>
+                    <li>Collaborated with cross-functional teams on AI initiatives</li>
+                    <li>Improved model accuracy by 25% through feature engineering</li>
+                    <li>Created automated testing frameworks for ML pipelines</li>
+                    <li>Contributed to open-source ML projects</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills">
-        <h2>Technical Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-category">
-                <h3>Programming</h3>
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        
+        <div class="skills-container">
+            <div class="skills-box">
+                <i class='bx bx-code-alt'></i>
+                <h3>Programming & Development</h3>
                 <ul>
-                    <li>Python</li>
-                    <li>C++</li>
-                    <li>SQL</li>
+                    <li>Python (Advanced)</li>
+                    <li>C++ (Intermediate)</li>
+                    <li>SQL (Advanced)</li>
+                    <li>JavaScript (Intermediate)</li>
+                    <li>Git & Version Control</li>
+                    <li>RESTful APIs</li>
                 </ul>
             </div>
-            <div class="skill-category">
+
+            <div class="skills-box">
+                <i class='bx bx-brain'></i>
                 <h3>AI & Data Science</h3>
                 <ul>
-                    <li>PyTorch</li>
-                    <li>NumPy</li>
+                    <li>PyTorch & TensorFlow</li>
+                    <li>NumPy & Pandas</li>
                     <li>Machine Learning</li>
+                    <li>Deep Learning</li>
+                    <li>Natural Language Processing</li>
+                    <li>Computer Vision</li>
                 </ul>
             </div>
-            <!-- Add other skill categories -->
-        </div>
-    </section>
 
-    <!-- Achievements Section -->
-    <section id="achievements">
-        <h2>Key Achievements</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <h3>Competitive Programming</h3>
+            <div class="skills-box">
+                <i class='bx bx-data'></i>
+                <h3>Data & Analytics</h3>
                 <ul>
-                    <li>Codeforces: 1625 Rating (Expert)</li>
-                    <li>CodeChef: 4 Star (1811 Rating)</li>
-                    <li>JEE Advanced: AIR 2913</li>
+                    <li>Data Analysis</li>
+                    <li>Statistical Modeling</li>
+                    <li>Data Visualization</li>
+                    <li>Big Data Processing</li>
+                    <li>Business Intelligence</li>
+                    <li>Predictive Analytics</li>
                 </ul>
             </div>
-            <!-- Add other achievement cards -->
+
+            <div class="skills-box">
+                <i class='bx bx-book-content'></i>
+                <h3>Technical Writing</h3>
+                <ul>
+                    <li>Documentation</li>
+                    <li>API Documentation</li>
+                    <li>Technical Blogs</li>
+                    <li>User Guides</li>
+                    <li>Training Materials</li>
+                    <li>Research Papers</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact">
-        <h2>Get in Touch</h2>
-        <div class="contact-info">
-            <p>Email: ranitnandi021@gmail.com</p>
-            <p>Phone: +919932069790</p>
-            <p>Location: Dhanbad, Jharkhand, India</p>
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-box">
+                    <i class='bx bx-envelope'></i>
+                    <h3>Email</h3>
+                    <p>ranitnandi021@gmail.com</p>
+                </div>
+                <div class="info-box">
+                    <i class='bx bx-phone'></i>
+                    <h3>Phone</h3>
+                    <p>+919932069790</p>
+                </div>
+                <div class="info-box">
+                    <i class='bx bx-map'></i>
+                    <h3>Location</h3>
+                    <p>Dhanbad, Jharkhand, India</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Ranit Nandi. All rights reserved.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>&copy; 2024 Ranit Nandi | All Rights Reserved</p>
+        </div>
+
+        <div class="footer-iconTop">
+            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+        </div>
     </footer>
+
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!-- Typed JS -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <canvas id="starCanvas"></canvas>
+    <div class="cursor"></div>
+    <div class="cursor-inner"></div>
 </body>
 </html>
