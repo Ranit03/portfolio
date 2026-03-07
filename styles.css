@@ -559,6 +559,108 @@ section {
     }
 }
 
+/* Projects Section */
+.projects {
+    min-height: 100vh;
+    padding: 8rem 7% 2rem;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 3rem;
+    padding: 3rem 1rem;
+}
+
+.project-box {
+    position: relative;
+    padding: 3.5rem;
+    border-radius: 2rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    border: .2rem solid var(--main-color);
+    transition: .5s ease;
+    background: rgba(13, 17, 23, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.project-box:hover {
+    transform: scale(1.02);
+    box-shadow: 0 .3rem 1rem var(--shadow-color), 0 0 20px rgba(117, 78, 249, 0.15);
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-header i {
+    font-size: 4rem;
+    color: var(--main-color);
+}
+
+.project-header h3 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.project-box .tech-stack {
+    font-size: 1.4rem;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(117, 78, 249, 0.1);
+    border-radius: 0.8rem;
+    display: inline-block;
+    border: 1px solid rgba(117, 78, 249, 0.25);
+}
+
+.project-box .tech-stack i {
+    margin-right: 0.5rem;
+    font-size: 1.4rem;
+    color: var(--main-color);
+}
+
+.project-box ul {
+    list-style: none;
+}
+
+.project-box ul li {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin: 1rem 0;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.project-box ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+}
+
+@media (max-width: 768px) {
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
+    .project-box {
+        padding: 2.5rem;
+    }
+
+    .project-header h3 {
+        font-size: 2.2rem;
+    }
+
+    .project-box ul li {
+        font-size: 1.4rem;
+    }
+}
+
 .home-img img {
     width: 35vw;
     animation: floatImage 4s ease-in-out infinite;
@@ -662,7 +764,7 @@ h1, h2, h3, .heading {
 }
 
 /* Enhance content boxes */
-.experience-box, .skills-box, .info-box {
+.experience-box, .skills-box, .info-box, .project-box {
     background: rgba(13, 17, 23, 0.8);
     backdrop-filter: blur(10px);
     border: 2px solid var(--main-color);
