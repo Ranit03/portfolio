@@ -1,278 +1,1342 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranit Nandi - AI Training & Software Engineer</title>
+    <title>Ranit Nandi &bull; AI Systems &amp; Software Engineer</title>
+    <meta name="description" content="Portfolio of Ranit Nandi - B.Tech CSE @ IIT (ISM) Dhanbad. Member of Research Staff at BEL CRL, Ex-GenAI Ops & Quality at Turing. Expert in Agentic AI, LLM Evaluation, Distributed Systems, and Competitive Programming.">
+    <meta name="keywords" content="Ranit Nandi, IIT Dhanbad, BEL CRL, Turing, Agentic AI, RAG, LLM Evaluation, RLHF, Full Stack, Codeforces Expert, Portfolio">
+    <meta name="author" content="Ranit Nandi">
 
-    <!-- CSS Files -->
+    <!-- Google Fonts: Syne (Obys Brutalist Display), Space Mono (Architectural Code), Plus Jakarta Sans & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Boxicons & Font Awesome -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- Scroll Reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="header">
-        <a href="#" class="logo">Ranit.</a>
+    <!-- Obys Architectural Grid Overlay -->
+    <div class="grid-overlay" id="grid-overlay" aria-hidden="true">
+        <div class="grid-col"><span class="grid-coord">COORD // 01</span></div>
+        <div class="grid-col"><span class="grid-coord">COORD // 02</span></div>
+        <div class="grid-col"><span class="grid-coord">COORD // 03</span></div>
+        <div class="grid-col"><span class="grid-coord">COORD // 04</span></div>
+        <div class="grid-col"><span class="grid-coord">COORD // 05</span></div>
+        <div class="grid-col"><span class="grid-coord">COORD // 06</span></div>
+        <span class="grid-crosshair crosshair-tl">+</span>
+        <span class="grid-crosshair crosshair-tr">+</span>
+        <span class="grid-crosshair crosshair-bl">+</span>
+        <span class="grid-crosshair crosshair-br">+</span>
+    </div>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#skills">Skills</a>
-            <a href="#achievements">Achievements</a>
-            <a href="#contact">Contact</a>
+    <!-- Background Dynamic Particle Canvas -->
+    <canvas id="starCanvas"></canvas>
+
+    <!-- Interactive Magnetic Cursor with Context Label -->
+    <div class="cursor">
+        <span class="cursor-label"></span>
+    </div>
+    <div class="cursor-inner"></div>
+
+    <!-- Header / Navbar -->
+    <header class="header" id="header">
+        <div class="header-left">
+            <a href="#home" class="logo" data-cursor="RN">
+                <span class="logo-index">[RN_03]</span>
+                <span class="logo-name">RANIT<span class="logo-dot">.</span>NANDI</span>
+            </a>
+            <div class="header-status-badge">
+                <span class="pulse-dot"></span>
+                <span>IIT (ISM) DHANBAD &bull; CSE '26</span>
+            </div>
+        </div>
+
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="nav-link active" data-cursor="GO"><span class="nav-num">01</span> HOME</a>
+            <a href="#about" class="nav-link" data-cursor="GO"><span class="nav-num">02</span> ABOUT</a>
+            <a href="#experience" class="nav-link" data-cursor="GO"><span class="nav-num">03</span> EXPERIENCE</a>
+            <a href="#projects" class="nav-link" data-cursor="GO"><span class="nav-num">04</span> PROJECTS</a>
+            <a href="#skills" class="nav-link" data-cursor="GO"><span class="nav-num">05</span> SKILLS</a>
+            <a href="#achievements" class="nav-link" data-cursor="GO"><span class="nav-num">06</span> HONORS</a>
+            <a href="#education" class="nav-link" data-cursor="GO"><span class="nav-num">07</span> ACADEMIA</a>
+            <a href="#contact" class="nav-link" data-cursor="GO"><span class="nav-num">08</span> CONTACT</a>
         </nav>
 
-        <div class="bx bx-moon" id="darkMode-icon"></div>
-        <div class="bx bx-menu" id="menu-icon"></div>
+        <div class="header-actions">
+            <!-- Obys Grid Toggle Button -->
+            <button class="grid-toggle-btn active" id="grid-toggle" aria-label="Toggle Architectural Grid" title="Toggle Grid Lines" data-cursor="GRID">
+                <i class="fa-solid fa-border-all"></i>
+                <span class="grid-btn-text">GRID <span class="grid-state">ON</span></span>
+            </button>
+
+            <!-- Theme Toggle -->
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme" title="Toggle Dark/Light Mode" data-cursor="MODE">
+                <i class="bx bx-moon" id="theme-icon"></i>
+            </button>
+
+            <a href="#contact" class="btn btn-sm btn-nav" data-cursor="HIRE">CONNECT</a>
+            <div class="bx bx-menu" id="menu-icon" aria-label="Toggle navigation menu"></div>
+        </div>
     </header>
 
-    <!-- Home Section -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Hello, I am</h3>
-            <h1>Ranit Nandi</h1>
-            <h3>And I'm a <span class="multiple-text"></span></h3>
-            <p>Tech-savvy professional specializing in AI training and software engineering
-            </p>
-
-            <div class="social-media">
-                <a href="https://in.linkedin.com/in/ranit-nandi-b3396a255" target="_blank"><i
-                        class="bx bxl-linkedin"></i></a>
-                <a href="https://github.com/Ranit03" target="_blank"><i class="bx bxl-github"></i></a>
-            </div>
-        </div>
-
-        <div class="home-img">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamMzaDNkaHBqcHBqaWd4Z2MyZm04MGd4anp1aTIzdThjbzFrdmduNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MD0svLSDeudszrNrp0/giphy.gif"
-                alt="Coding Animation">
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="https://img.freepik.com/free-vector/artificial-intelligence-ai-robot-server-room-digital-technology-banner_39422-767.jpg"
-                alt="AI Training Illustration">
-        </div>
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>AI Training Specialist & Software Engineer</h3>
-            <p>I am a results-driven professional in AI training and applied sciences with strong foundations in
-                competitive coding, mathematics, and physics. Currently pursuing Bachelor of Technology from IIT ISM
-                Dhanbad, one of India's premier technical institutions. Through remote workshops and technical writing,
-                I've developed excellent communication skills to engage diverse audiences and deliver impactful results.
-            </p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience" id="experience">
-        <h2 class="heading">My <span>Journey</span></h2>
-
-        <div class="experience-container">
-            <div class="experience-box">
-                <i class='bx bx-code-block'></i>
-                <h3>AI Code Evaluation Engineer</h3>
-                <p class="company">Outlier AI</p>
-                <p class="duration">2018 – 2024 | Remote</p>
-                <ul>
-                    <li>Evaluated and validated AI-generated code solutions across Python, C++, and JavaScript,
-                        identifying logical errors, edge cases, and performance bottlenecks.</li>
-                    <li>Reviewed and refined LLM prompts and responses to improve reasoning accuracy and reduce
-                        hallucinations in algorithmic problem solving.</li>
-                    <li>Designed comprehensive algorithmic test cases covering data structures, dynamic programming, and
-                        graph algorithms to benchmark model outputs.</li>
-                    <li>Provided structured feedback on code quality, time complexity, and solution clarity, improving
-                        evaluation consistency across datasets.</li>
-                    <li>Tagged and organized tasks by topic, difficulty level, and programming language to support
-                        large-scale AI model benchmarking pipelines.</li>
-                    <li>Collaborated with research teams to analyze model performance across multiple coding tasks and
-                        contributed to improving training datasets for large language models.</li>
-                </ul>
-            </div>
-
-            <div class="experience-box">
-                <i class='bx bx-brain'></i>
-                <h3>GenAI Operations & Quality Manager</h3>
-                <p class="company">Turing</p>
-                <p class="duration">2024 – 2025 | Remote</p>
-                <ul>
-                    <li>Lead AI data operations and quality calibration for LLM training and evaluation workflows,
-                        including RLHF, Agentic data, and SFT, managing a globally distributed team.</li>
-                    <li>Collaborate with enterprise clients on large-scale GenAI initiatives, ensuring high precision,
-                        scalability, and alignment with real-world deployment requirements.</li>
-                    <li>Mentor and calibrate 100+ trainers and team leads, maintaining strict adherence to client
-                        quality standards and evolving project guidelines.</li>
-                    <li>Design and implement workflow automation, documentation, and operational processes, improving
-                        productivity and reducing average handling time (AHT).</li>
-                    <li>Develop performance dashboards, reports, and operational metrics to monitor quality, efficiency,
-                        and team performance, enabling data-driven decisions.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <h2 class="heading">My <span>Projects</span></h2>
-
-        <div class="projects-container">
-            <div class="project-box">
-                <div class="project-header">
-                    <i class='bx bx-chat'></i>
-                    <h3>Chat Website</h3>
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Hero Section -->
+            <section class="hero obys-section" id="home">
+                <span class="section-watermark" aria-hidden="true">01</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 01 &bull; SYSTEM INTRODUCTION</span>
+                    <span class="top-coords">LOC // 23°47'N 86°26'E</span>
                 </div>
-                <p class="tech-stack"><i class='bx bx-wrench'></i> React.js, Node.js, Redux-Toolkit, MongoDB, Socket.io
-                </p>
-                <ul>
-                    <li>Constructed a full-stack web application featuring a real-time chat interface, providing users
-                        with a seamless and interactive experience.</li>
-                    <li>Created a social media platform that addressed community engagement challenges, enhancing 100+
-                        developers.</li>
-                    <li>Engineered a real-time messaging platform enabling 100+ users to exchange text, images, and
-                        videos seamlessly.</li>
-                    <li>Implemented a feature-rich website with robust user authentication for secure platform access.
-                    </li>
-                    <li>Engineered integration of 5+ file formats, overcoming compatibility challenges, file transfer
-                        efficiency by 40%.</li>
-                </ul>
-            </div>
 
-            <div class="project-box">
-                <div class="project-header">
-                    <i class='bx bx-dollar-circle'></i>
-                    <h3>EasyLoan</h3>
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="hero-dossier-pill">
+                            <span class="pulse-dot"></span>
+                            <span>AVAILABLE FOR HIGH-IMPACT ROLES &bull; CSE '26</span>
+                        </div>
+
+                        <div class="split-heading-container">
+                            <h1 class="hero-title kinetic-title">
+                                <span class="word-wrap"><span class="word-inner">RANIT</span></span>
+                                <span class="word-wrap"><span class="word-inner highlight-word">NANDI</span></span>
+                            </h1>
+                        </div>
+
+                        <h2 class="hero-subtitle">
+                            ENGINEERING <span class="typed-text"></span>
+                        </h2>
+
+                        <p class="hero-desc">
+                            Final-year Computer Science undergraduate at <strong>IIT (ISM) Dhanbad</strong> with proven industry experience at <strong>Bharat Electronics Limited (BEL CRL)</strong> and <strong>Turing</strong>. Specializing in <strong>Agentic AI workflows, LLM Evaluation & RLHF, PaddleOCR pipelines</strong>, and scalable <strong>Distributed Systems</strong>. Competitive programmer with <strong>AIR 2913 in JEE Advanced</strong> and <strong>Codeforces Expert (1625)</strong> rating.
+                        </p>
+
+                        <!-- Quick Technical Chips -->
+                        <div class="hero-stats-row">
+                            <div class="hero-stat-chip" data-tilt>
+                                <span class="stat-accent-bar"></span>
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <div>
+                                    <span class="stat-value">IIT (ISM) Dhanbad</span>
+                                    <span class="stat-label">B.Tech CSE '26 (7.92 CGPA)</span>
+                                </div>
+                            </div>
+                            <div class="hero-stat-chip" data-tilt>
+                                <span class="stat-accent-bar"></span>
+                                <i class="fa-solid fa-trophy"></i>
+                                <div>
+                                    <span class="stat-value">AIR 2913</span>
+                                    <span class="stat-label">JEE Advanced (Top 1.9%)</span>
+                                </div>
+                            </div>
+                            <div class="hero-stat-chip" data-tilt>
+                                <span class="stat-accent-bar"></span>
+                                <i class="fa-solid fa-code"></i>
+                                <div>
+                                    <span class="stat-value">1625 / 1811</span>
+                                    <span class="stat-label">CF Expert &bull; CC 4-Star</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Action Buttons -->
+                        <div class="hero-cta">
+                            <a href="#projects" class="btn btn-primary" data-cursor="VIEW">
+                                <span>EXPLORE ARTIFACTS</span>
+                                <i class="bx bx-right-arrow-alt"></i>
+                            </a>
+                            <a href="#experience" class="btn btn-outline" data-cursor="SCROLL">
+                                <span>WORK TRAJECTORY</span>
+                            </a>
+                            <a href="#contact" class="btn btn-glass" data-cursor="WRITE">
+                                <i class="bx bx-envelope"></i>
+                                <span>DISPATCH MESSAGE</span>
+                            </a>
+                        </div>
+
+                        <!-- Social Strip -->
+                        <div class="social-links">
+                            <a href="https://github.com/Ranit03" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub" title="GitHub: Ranit03" data-cursor="GITHUB">
+                                <i class="bx bxl-github"></i>
+                            </a>
+                            <a href="https://in.linkedin.com/in/ranit-nandi-b3396a255" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn" title="LinkedIn" data-cursor="LINKEDIN">
+                                <i class="bx bxl-linkedin"></i>
+                            </a>
+                            <a href="https://codeforces.com/profile/Ranit03" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Codeforces" title="Codeforces Expert (1625)" data-cursor="CF 1625">
+                                <i class="fa-solid fa-chart-simple"></i>
+                            </a>
+                            <a href="https://www.codechef.com/users/ranitnandi021" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="CodeChef" title="CodeChef 4★ (1811)" data-cursor="CC 1811">
+                                <i class="fa-solid fa-code"></i>
+                            </a>
+                            <a href="https://leetcode.com/u/Ranit03/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LeetCode" title="LeetCode (1765)" data-cursor="LEETCODE">
+                                <i class="fa-solid fa-terminal"></i>
+                            </a>
+                            <a href="mailto:ranitnandi021@gmail.com" class="social-btn" aria-label="Email" title="ranitnandi021@gmail.com" data-cursor="EMAIL">
+                                <i class="bx bx-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual (Video Animation & Terminal View Switcher) -->
+                    <div class="hero-visual">
+                        <div class="hero-card-wrapper">
+                            <!-- Switcher Tabs -->
+                            <div class="visual-switcher-tabs">
+                                <button class="switcher-btn active" id="show-video-btn" data-target="video-view" title="Coding Animation" data-cursor="WATCH">
+                                    <i class="fa-solid fa-circle-play"></i> <span>WORKSPACE ANIMATION</span>
+                                </button>
+                                <button class="switcher-btn" id="show-terminal-btn" data-target="terminal-view" title="Terminal View" data-cursor="CLI">
+                                    <i class="fa-solid fa-terminal"></i> <span>TERMINAL VIEW</span>
+                                </button>
+                            </div>
+
+                            <!-- Live Coding Animation Panel (Front Page Visual) -->
+                            <div class="visual-panel active" id="video-view">
+                                <div class="home-img home-img-frame" data-tilt>
+                                    <div class="frame-bar">
+                                        <div class="terminal-dots">
+                                            <span class="dot red"></span>
+                                            <span class="dot yellow"></span>
+                                            <span class="dot green"></span>
+                                        </div>
+                                        <div class="frame-tag"><i class="fa-solid fa-code"></i> LIVE WORKSPACE // SESSION #03</div>
+                                        <span class="live-badge"><span class="pulse-dot"></span> LIVE</span>
+                                    </div>
+                                    <div class="img-wrapper">
+                                        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExamMzaDNkaHBqcHBqaWd4Z2MyZm04MGd4anp1aTIzdThjbzFrdmduNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/MD0svLSDeudszrNrp0/giphy.gif" alt="Ranit Nandi - Live Coding Animation" class="hero-video-gif">
+                                    </div>
+                                    <!-- Floating Badges -->
+                                    <div class="floating-badge badge-top-right">
+                                        <i class="fa-solid fa-brain"></i> Agentic AI &amp; RAG
+                                    </div>
+                                    <div class="floating-badge badge-bottom-left">
+                                        <i class="fa-solid fa-bolt"></i> CF Expert (1625)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Terminal View Panel -->
+                            <div class="visual-panel" id="terminal-view">
+                                <div class="terminal-card" data-tilt>
+                                    <div class="terminal-header">
+                                        <div class="terminal-dots">
+                                            <span class="dot red"></span>
+                                            <span class="dot yellow"></span>
+                                            <span class="dot green"></span>
+                                        </div>
+                                        <div class="terminal-title">ranit@iit-ism-dhanbad: ~</div>
+                                        <div class="terminal-action">
+                                            <button id="copy-terminal-btn" title="Copy Info" data-cursor="COPY"><i class="bx bx-copy"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="terminal-body">
+                                        <p class="code-line"><span class="cmd-prompt">$</span> <span class="cmd-text">curl -s https://ranitnandi.dev/profile.json</span></p>
+                                        <pre class="code-block"><code>{
+  <span class="json-key">"name"</span>: <span class="json-str">"Ranit Nandi"</span>,
+  <span class="json-key">"adm_no"</span>: <span class="json-str">"22JE0780"</span>,
+  <span class="json-key">"university"</span>: <span class="json-str">"IIT (ISM) Dhanbad"</span>,
+  <span class="json-key">"degree"</span>: <span class="json-str">"B.Tech CSE (2022-2026)"</span>,
+  <span class="json-key">"cgpa"</span>: <span class="json-num">7.92</span>,
+  <span class="json-key">"experience"</span>: [
+    <span class="json-str">"Member of Research Staff @ BEL CRL"</span>,
+    <span class="json-str">"GenAI Ops & Quality Mgr @ Turing"</span>
+  ],
+  <span class="json-key">"specializations"</span>: [
+    <span class="json-str">"Agentic AI & LangChain"</span>,
+    <span class="json-str">"LLM Evaluation & RLHF/SFT"</span>,
+    <span class="json-str">"Knowledge Graphs & RAG"</span>,
+    <span class="json-str">"PaddleOCR & Data Pipelines"</span>
+  ],
+  <span class="json-key">"competitive_programming"</span>: {
+    <span class="json-key">"codeforces"</span>: <span class="json-str">"Expert (1625)"</span>,
+    <span class="json-key">"codechef"</span>: <span class="json-str">"4-Star (1811)"</span>,
+    <span class="json-key">"leetcode"</span>: <span class="json-str">"Rating 1765"</span>,
+    <span class="json-key">"jee_advanced"</span>: <span class="json-str">"AIR 2913 (Top 1.9%)"</span>
+  },
+  <span class="json-key">"status"</span>: <span class="json-str">"Building impactful systems"</span>
+}</code></pre>
+                                        <div class="terminal-footer-pills">
+                                            <span class="pill-badge"><i class="fa-brands fa-python"></i> Python</span>
+                                            <span class="pill-badge"><i class="fa-brands fa-node"></i> Node.js</span>
+                                            <span class="pill-badge"><i class="fa-solid fa-network-wired"></i> LangChain</span>
+                                            <span class="pill-badge"><i class="fa-solid fa-database"></i> Vector DBs</span>
+                                            <span class="pill-badge"><i class="fa-brands fa-docker"></i> Docker</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="tech-stack"><i class='bx bx-wrench'></i> Node.js, React.js, PHP, JavaScript, CSS, Linux</p>
-                <ul>
-                    <li>Engineered a high-performance lending platform with optimized backend services, improving
-                        borrower–lender transaction throughput by 50%.</li>
-                    <li>Implemented real-time loan tracking using event-driven concurrency models and socket-based
-                        communication, ensuring low-latency and reliable updates across distributed clients.</li>
-                    <li>Optimized database queries and caching strategies, reducing response times and improving memory
-                        utilization by 35%.</li>
-                    <li>Deployed and tested the system in a Linux environment, leveraging Git for version control, shell
-                        scripts for automation, and GDB/logging utilities for debugging.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <h2 class="heading">My <span>Skills</span></h2>
-
-        <div class="skills-container">
-            <div class="skills-box">
-                <i class='bx bx-code-alt'></i>
-                <h3>Programming & Development</h3>
-                <ul>
-                    <li>Python (Advanced)</li>
-                    <li>C++ (Intermediate)</li>
-                    <li>JavaScript (Advanced)</li>
-                    <li>PHP</li>
-                    <li>SQL (Advanced)</li>
-                    <li>Git & Version Control</li>
-                    <li>RESTful APIs</li>
-                    <li>Linux</li>
-                </ul>
-            </div>
-
-            <div class="skills-box">
-                <i class='bx bx-brain'></i>
-                <h3>AI & Data Science</h3>
-                <ul>
-                    <li>PyTorch & TensorFlow</li>
-                    <li>NumPy & Pandas</li>
-                    <li>Machine Learning</li>
-                    <li>Deep Learning</li>
-                    <li>Natural Language Processing</li>
-                    <li>Computer Vision</li>
-                </ul>
-            </div>
-
-            <div class="skills-box">
-                <i class='bx bx-data'></i>
-                <h3>Web & Backend Frameworks</h3>
-                <ul>
-                    <li>React.js</li>
-                    <li>Node.js</li>
-                    <li>Redux-Toolkit</li>
-                    <li>Socket.io</li>
-                    <li>MongoDB</li>
-                    <li>Express.js</li>
-                </ul>
-            </div>
-
-            <div class="skills-box">
-                <i class='bx bx-book-content'></i>
-                <h3>Technical Writing</h3>
-                <ul>
-                    <li>Documentation</li>
-                    <li>API Documentation</li>
-                    <li>Technical Blogs</li>
-                    <li>User Guides</li>
-                    <li>Training Materials</li>
-                    <li>Research Papers</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact <span>Me!</span></h2>
-
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="info-box">
-                    <i class='bx bx-envelope'></i>
-                    <h3>Email</h3>
-                    <p>ranitnandi210@gmail.com</p>
+            <!-- Obys Infinite Kinetic Marquee -->
+            <div class="editorial-marquee" aria-hidden="true">
+                <div class="marquee-track">
+                    <span class="marquee-item">AGENTIC AI SYSTEMS ✦</span>
+                    <span class="marquee-item outline">LLM EVALUATION &amp; RLHF ✦</span>
+                    <span class="marquee-item">DISTRIBUTED BACKEND ✦</span>
+                    <span class="marquee-item outline">PADDLEOCR PIPELINES ✦</span>
+                    <span class="marquee-item">KNOWLEDGE GRAPHS &amp; RAG ✦</span>
+                    <span class="marquee-item outline">CODEFORCES EXPERT 1625 ✦</span>
+                    <span class="marquee-item">IIT (ISM) DHANBAD ✦</span>
+                    <span class="marquee-item outline">JEE ADV AIR 2913 ✦</span>
                 </div>
-                <div class="info-box">
-                    <i class='bx bx-phone'></i>
-                    <h3>Phone</h3>
-                    <p>+919932069790</p>
-                </div>
-                <div class="info-box">
-                    <i class='bx bx-map'></i>
-                    <h3>Location</h3>
-                    <p>Dhanbad, Jharkhand, India</p>
+                <div class="marquee-track" aria-hidden="true">
+                    <span class="marquee-item">AGENTIC AI SYSTEMS ✦</span>
+                    <span class="marquee-item outline">LLM EVALUATION &amp; RLHF ✦</span>
+                    <span class="marquee-item">DISTRIBUTED BACKEND ✦</span>
+                    <span class="marquee-item outline">PADDLEOCR PIPELINES ✦</span>
+                    <span class="marquee-item">KNOWLEDGE GRAPHS &amp; RAG ✦</span>
+                    <span class="marquee-item outline">CODEFORCES EXPERT 1625 ✦</span>
+                    <span class="marquee-item">IIT (ISM) DHANBAD ✦</span>
+                    <span class="marquee-item outline">JEE ADV AIR 2913 ✦</span>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-text">
-            <p>&copy; 2024 Ranit Nandi | All Rights Reserved</p>
-        </div>
+            <!-- About Section -->
+            <section class="section about-section obys-section" id="about">
+                <span class="section-watermark" aria-hidden="true">02</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 02 &bull; DOSSIER &amp; IDENTITY</span>
+                    <span class="top-coords">ACADEMIA // IIT_ISM_DHN</span>
+                </div>
 
-        <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
-        </div>
-    </footer>
+                <div class="section-header">
+                    <span class="section-tag">ENGINEERING PROFILE</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">ABOUT</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">ME</span></span>
+                    </h2>
+                    <p class="section-subtitle">Bridging the gap between cutting-edge Generative AI research and production-grade distributed software engineering.</p>
+                </div>
 
-    <!-- Scroll Reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Typed JS -->
+                <div class="about-grid">
+                    <div class="about-card main-bio-card" data-tilt>
+                        <div class="bio-header">
+                            <div class="avatar-ring">
+                                <i class="fa-solid fa-user-astronaut bio-avatar-icon"></i>
+                            </div>
+                            <div>
+                                <h3 class="bio-name">Ranit Nandi</h3>
+                                <p class="bio-subtitle">Computer Science Engineer &bull; IIT (ISM) Dhanbad</p>
+                            </div>
+                        </div>
+                        <div class="bio-text">
+                            <p>
+                                I am a final-year Computer Science undergraduate at the prestigious <strong>Indian Institute of Technology (Indian School of Mines), Dhanbad</strong>. My engineering journey centers around building reliable, evidence-grounded AI architectures, deep learning pipelines, and resilient backend systems.
+                            </p>
+                            <p>
+                                At <strong>Bharat Electronics Limited (BEL CRL)</strong>, I engineered automated document-processing pipelines using <strong>PaddleOCR</strong>, conducted rigorous <strong>LLM response evaluation</strong> for factual correctness and instruction adherence, and supported <strong>RLHF/SFT</strong> data workflows. At <strong>Turing</strong>, I led delivery of LLM evaluation frameworks, designed hallucination-detection benchmarks, and developed <strong>LangChain-powered RAG</strong> and data validation pipelines.
+                            </p>
+                            <p>
+                                With an <strong>All India Rank of 2913 in JEE Advanced</strong>, a <strong>Codeforces Expert rating (1625)</strong>, and <strong>CodeChef 4★ (1811)</strong>, I combine competitive algorithmic rigor with deep hands-on software development across Python, C++, TypeScript, and modern distributed cloud environments.
+                            </p>
+                        </div>
+
+                        <div class="contact-quick-strip">
+                            <div class="quick-item">
+                                <i class="bx bx-id-card"></i>
+                                <div>
+                                    <span class="label">Admission No.</span>
+                                    <span class="value copyable" data-copy="22JE0780" title="Click to copy" data-cursor="COPY">22JE0780 <i class="bx bx-copy-alt"></i></span>
+                                </div>
+                            </div>
+                            <div class="quick-item">
+                                <i class="bx bx-envelope"></i>
+                                <div>
+                                    <span class="label">Email</span>
+                                    <a href="mailto:ranitnandi021@gmail.com" class="value" data-cursor="MAIL">ranitnandi021@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="quick-item">
+                                <i class="bx bx-phone"></i>
+                                <div>
+                                    <span class="label">Phone</span>
+                                    <a href="tel:+919932069790" class="value" data-cursor="CALL">+91 9932069790</a>
+                                </div>
+                            </div>
+                            <div class="quick-item">
+                                <i class="bx bx-map-pin"></i>
+                                <div>
+                                    <span class="label">Base</span>
+                                    <span class="value">Dhanbad, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 Pillars Cards -->
+                    <div class="about-pillars">
+                        <div class="pillar-card" data-tilt>
+                            <div class="pillar-icon"><i class="fa-solid fa-brain"></i></div>
+                            <h4>Agentic AI &amp; RAG</h4>
+                            <p>Designing hybrid Knowledge Graph + Vector DB architectures, prompt orchestration, tool calling, and hallucination reduction workflows.</p>
+                        </div>
+
+                        <div class="pillar-card" data-tilt>
+                            <div class="pillar-icon"><i class="fa-solid fa-sliders"></i></div>
+                            <h4>LLM Evaluation &amp; RLHF</h4>
+                            <p>Industry-tested frameworks combining automated validation, benchmark metrics, instruction adherence, SFT curation, and root-cause failure analysis.</p>
+                        </div>
+
+                        <div class="pillar-card" data-tilt>
+                            <div class="pillar-icon"><i class="fa-solid fa-server"></i></div>
+                            <h4>Distributed Backend &amp; APIs</h4>
+                            <p>Building high-throughput microservices with Node.js, FastAPI, WebSockets, Kafka, Redis, and resilient asynchronous message queues.</p>
+                        </div>
+
+                        <div class="pillar-card" data-tilt>
+                            <div class="pillar-icon"><i class="fa-solid fa-award"></i></div>
+                            <h4>Algorithmic Mastery</h4>
+                            <p>700+ problems solved across Codeforces, LeetCode, and CodeChef. Top global placements (Global Rank 185 in CC Starters 113, Rank 720 in CF Rd 935).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section class="section experience-section obys-section" id="experience">
+                <span class="section-watermark" aria-hidden="true">03</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 03 &bull; INDUSTRY TRAJECTORY</span>
+                    <span class="top-coords">TRACK // PRODUCTION_EXPERIENCE</span>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">CAREER HISTORY</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">WORK</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">EXPERIENCE</span></span>
+                    </h2>
+                    <p class="section-subtitle">Real-world engineering impact in AI research, LLM evaluation, document automation, and quality management.</p>
+                </div>
+
+                <div class="experience-timeline">
+                    <!-- BEL CRL Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <div class="timeline-content experience-box" data-tilt>
+                            <div class="exp-header">
+                                <div>
+                                    <div class="exp-role-badge">RESEARCH STAFF</div>
+                                    <h3 class="exp-role">Member of Research Staff</h3>
+                                    <h4 class="company-name">
+                                        <i class="fa-solid fa-building"></i> Bharat Electronics Limited (BEL) &bull; Central Research Laboratory (CRL)
+                                    </h4>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-duration"><i class="bx bx-calendar"></i> Jan 2026 – Nov 2026</span>
+                                    <span class="exp-location"><i class="bx bx-map"></i> Ghaziabad, India</span>
+                                </div>
+                            </div>
+
+                            <ul class="exp-bullets">
+                                <li>
+                                    <strong>Automated Document OCR Workflows:</strong> Developed automated document-processing workflows using Python and <strong>PaddleOCR</strong> to extract, organize, and structure information from handwritten and image-based documents for reliable downstream processing.
+                                </li>
+                                <li>
+                                    <strong>Data Validation &amp; Quality Assurance:</strong> Implemented data validation and quality assurance checks to identify incomplete, inconsistent, and incorrectly extracted information, significantly elevating data accuracy and processing reliability.
+                                </li>
+                                <li>
+                                    <strong>LLM Response Evaluation &amp; Feedback:</strong> Evaluated LLM-generated responses for factual accuracy, relevance, instruction adherence, and consistency, systematically documenting errors and providing structured feedback to guide model quality improvement.
+                                </li>
+                                <li>
+                                    <strong>RLHF &amp; SFT Data Quality:</strong> Supported <strong>RLHF / SFT</strong> data quality workflows by reviewing model outputs, assessing response quality against defined evaluation criteria, and identifying examples requiring correction or further review.
+                                </li>
+                                <li>
+                                    <strong>Failure Mode Investigation &amp; Root-Cause Analysis:</strong> Investigated model response failures and unsupported claims, analyzing available context and retrieved evidence to distinguish information gaps, retrieval errors, and reasoning inconsistencies.
+                                </li>
+                                <li>
+                                    <strong>Data Transformation &amp; Machine Learning:</strong> Processed and analyzed structured and unstructured data using <strong>Python, Pandas, SQL, and XGBoost</strong>, transforming raw information into standardized records for downstream analysis and classification.
+                                </li>
+                                <li>
+                                    <strong>Functional &amp; Integration Testing:</strong> Conducted functional and integration testing, documented defects and validation findings, performed root-cause analysis, and implemented corrective measures to improve workflow consistency and reliability.
+                                </li>
+                                <li>
+                                    <strong>Cross-Functional Collaboration:</strong> Collaborated with research and engineering teams to improve data-processing and evaluation procedures, document technical findings, and deliver project tasks within established timelines.
+                                </li>
+                            </ul>
+
+                            <div class="exp-tags">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">PaddleOCR</span>
+                                <span class="tech-pill">LLM Evaluation</span>
+                                <span class="tech-pill">RLHF / SFT</span>
+                                <span class="tech-pill">XGBoost</span>
+                                <span class="tech-pill">Pandas</span>
+                                <span class="tech-pill">SQL</span>
+                                <span class="tech-pill">Root-Cause Analysis</span>
+                                <span class="tech-pill">Data QA</span>
+                                <span class="tech-pill">Integration Testing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Turing Experience -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <div class="timeline-content experience-box" data-tilt>
+                            <div class="exp-header">
+                                <div>
+                                    <div class="exp-role-badge">GENAI OPERATIONS</div>
+                                    <h3 class="exp-role">GenAI Operations &amp; Quality Manager</h3>
+                                    <h4 class="company-name">
+                                        <i class="fa-solid fa-globe"></i> Turing
+                                    </h4>
+                                </div>
+                                <div class="exp-meta">
+                                    <span class="exp-duration"><i class="bx bx-calendar"></i> July 2024 – Dec 2024</span>
+                                    <span class="exp-location"><i class="bx bx-laptop"></i> Remote</span>
+                                </div>
+                            </div>
+
+                            <ul class="exp-bullets">
+                                <li>
+                                    <strong>LLM Evaluation &amp; Training Delivery:</strong> Led delivery of LLM evaluation and training workflows for <strong>RLHF, SFT, and prompt engineering</strong>, assessing model outputs for factual accuracy, instruction adherence, reasoning quality, and consistency.
+                                </li>
+                                <li>
+                                    <strong>QA &amp; Benchmark Frameworks:</strong> Designed LLM evaluation and quality assurance frameworks combining automated validation, benchmark metrics, prompt testing, and human feedback to identify hallucinations, unsupported claims, and recurring model failure patterns.
+                                </li>
+                                <li>
+                                    <strong>Evaluation Criteria &amp; Validation Workflows:</strong> Developed structured evaluation criteria and validation workflows to assess response correctness, evidence quality, and reliability, documenting defects and providing actionable feedback to improve evaluation consistency.
+                                </li>
+                                <li>
+                                    <strong>Data Pipelines with LangChain:</strong> Built Python-based data processing and evaluation pipelines using <strong>Pandas, NumPy, SQL, and LangChain</strong> to clean, validate, and standardize datasets for reliable downstream model assessment.
+                                </li>
+                                <li>
+                                    <strong>Prompt Testing &amp; Vulnerability Analysis:</strong> Applied systematic prompt testing and failure analysis to investigate weaknesses in model responses, identify potential causes of incorrect outputs, and support reproducible quality assessments.
+                                </li>
+                                <li>
+                                    <strong>RAG &amp; Prompt Orchestration Workflows:</strong> Designed AI workflows integrating LLM APIs, embeddings, vector search, and prompt orchestration to support <strong>Retrieval-Augmented Generation (RAG)</strong>, contextual information retrieval, and evidence-grounded response generation.
+                                </li>
+                                <li>
+                                    <strong>Cross-Functional Stakeholder Alignment:</strong> Collaborated with research, product, and engineering stakeholders to translate evaluation requirements into documented acceptance criteria, repeatable QA procedures, and actionable technical recommendations.
+                                </li>
+                            </ul>
+
+                            <div class="exp-tags">
+                                <span class="tech-pill">LangChain</span>
+                                <span class="tech-pill">OpenAI API</span>
+                                <span class="tech-pill">RAG Orchestration</span>
+                                <span class="tech-pill">Prompt Engineering</span>
+                                <span class="tech-pill">Vector Search</span>
+                                <span class="tech-pill">Embeddings</span>
+                                <span class="tech-pill">RLHF &amp; SFT</span>
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">Pandas &amp; NumPy</span>
+                                <span class="tech-pill">SQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="section projects-section obys-section" id="projects">
+                <span class="section-watermark" aria-hidden="true">04</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 04 &bull; CODE ARTIFACTS</span>
+                    <span class="top-coords">REPOS // FULL_STACK_&amp;_RAG</span>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">ENGINEERING ARTIFACTS</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">FEATURED</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">PROJECTS</span></span>
+                    </h2>
+                    <p class="section-subtitle">Hands-on architectures solving complex real-time messaging and domain-grounded Question Answering challenges.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <!-- Project 1: Knowledge Graph + RAG -->
+                    <div class="project-card" data-tilt>
+                        <div class="project-card-banner">
+                            <div class="project-icon-box">
+                                <i class="fa-solid fa-diagram-project"></i>
+                            </div>
+                            <div class="project-category-badge">AGENTIC AI &bull; RAG</div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <h3 class="project-title">Knowledge Graph + RAG Based QA System</h3>
+                            <p class="project-subtext">Hybrid Retrieval-Augmented Generation &amp; Graph-Grounded Question Answering</p>
+
+                            <p class="project-description">
+                                Engineered an advanced hybrid Question Answering architecture pairing Knowledge Graph reasoning with Retrieval-Augmented Generation to conquer complex domain-specific queries with zero hallucination and high factual precision.
+                            </p>
+
+                            <div class="project-highlights">
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Hybrid Reasoning:</strong> Blended vector retrieval (FAISS / ChromaDB) with Knowledge Graph entity relationships for deep contextual comprehension.</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Context-Grounded Answers:</strong> Integrated OpenAI LLM APIs with optimized multi-turn prompt engineering to eliminate hallucinations and bolster coherence.</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Scalable Ingestion Pipeline:</strong> Developed automated pipelines for indexing and structuring large unstructured documents, accelerating retrieval throughput.</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Rigorous Evaluation:</strong> Benchmarked accuracy and groundedness using qualitative and quantitative evaluation metrics, iteratively reducing error rates.</span>
+                                </div>
+                            </div>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-pill">Python</span>
+                                <span class="tech-pill">LangChain</span>
+                                <span class="tech-pill">OpenAI API</span>
+                                <span class="tech-pill">Vector DB (FAISS/Chroma)</span>
+                                <span class="tech-pill">Knowledge Graphs</span>
+                                <span class="tech-pill">Embeddings</span>
+                                <span class="tech-pill">RAG Evaluation</span>
+                            </div>
+
+                            <div class="project-footer">
+                                <a href="https://github.com/Ranit03" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline" data-cursor="CODE">
+                                    <i class="bx bxl-github"></i> <span>View on GitHub</span>
+                                </a>
+                                <span class="project-status-pill"><i class="bx bx-check-circle"></i> Production Ready</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Real-Time Chat & Social Platform -->
+                    <div class="project-card" data-tilt>
+                        <div class="project-card-banner">
+                            <div class="project-icon-box">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div class="project-category-badge">FULL-STACK &bull; DISTRIBUTED</div>
+                        </div>
+                        
+                        <div class="project-body">
+                            <h3 class="project-title">Real-Time Chat &amp; Developer Social Platform</h3>
+                            <p class="project-subtext">Scalable Low-Latency Messaging &amp; Community Platform for 100+ Active Users</p>
+
+                            <p class="project-description">
+                                Constructed an end-to-end full-stack web application featuring bidirectional real-time communication, multimedia file transfer, community feeds, and robust authentication for 100+ active developers.
+                            </p>
+
+                            <div class="project-highlights">
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Real-Time Messaging:</strong> Built with Socket.io WebSockets and Node.js/Express, enabling instantaneous exchange of text, images, and videos.</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Multi-Format Transfer (+40% Speed):</strong> Engineered seamless support for 5+ file formats, resolving compatibility issues and boosting transfer efficiency by 40%.</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Developer Community Platform:</strong> Created dedicated discussion feeds addressing community engagement challenges for 100+ developers.</span>
+                                </div>
+                                <div class="highlight-item">
+                                    <i class="bx bx-check-shield"></i>
+                                    <span><strong>Security &amp; State Management:</strong> Architected robust JWT authentication, password hashing, and clean global state flow using Redux Toolkit.</span>
+                                </div>
+                            </div>
+
+                            <div class="project-tech-stack">
+                                <span class="tech-pill">React.js</span>
+                                <span class="tech-pill">Node.js</span>
+                                <span class="tech-pill">Express.js</span>
+                                <span class="tech-pill">Redux Toolkit</span>
+                                <span class="tech-pill">MongoDB</span>
+                                <span class="tech-pill">Socket.io</span>
+                                <span class="tech-pill">JWT</span>
+                                <span class="tech-pill">REST APIs</span>
+                            </div>
+
+                            <div class="project-footer">
+                                <a href="https://github.com/Ranit03" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline" data-cursor="CODE">
+                                    <i class="bx bxl-github"></i> <span>View on GitHub</span>
+                                </a>
+                                <span class="project-status-pill"><i class="bx bx-check-circle"></i> 100+ Active Users</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Skills Section -->
+            <section class="section skills-section obys-section" id="skills">
+                <span class="section-watermark" aria-hidden="true">05</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 05 &bull; TECHNICAL CAPABILITIES</span>
+                    <span class="top-coords">TAXONOMY // 10_DOMAINS</span>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">TOOLING &amp; MASTERY</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">TECHNICAL</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">SKILLS</span></span>
+                    </h2>
+                    <p class="section-subtitle">Comprehensive toolkit spanning Agentic AI, Backend Systems, Cloud Infrastructure, QA, and Core Computer Science.</p>
+                </div>
+
+                <!-- Skill Search & Filter -->
+                <div class="skills-filter-wrapper">
+                    <div class="skills-search-box">
+                        <i class="bx bx-search"></i>
+                        <input type="text" id="skill-search" placeholder="Search skills (e.g., Python, LangChain, Kafka, Docker)..." autocomplete="off" data-cursor="TYPE">
+                        <button id="clear-skill-search" class="clear-btn" title="Clear" data-cursor="CLEAR"><i class="bx bx-x"></i></button>
+                    </div>
+                    <div class="skills-categories-tabs" id="skill-category-tabs">
+                        <button class="skill-tab active" data-category="all" data-cursor="FILTER">All Skills</button>
+                        <button class="skill-tab" data-category="ai" data-cursor="FILTER">AI/ML &amp; Agentic</button>
+                        <button class="skill-tab" data-category="languages" data-cursor="FILTER">Languages</button>
+                        <button class="skill-tab" data-category="backend" data-cursor="FILTER">Backend &amp; APIs</button>
+                        <button class="skill-tab" data-category="data" data-cursor="FILTER">Data &amp; Databases</button>
+                        <button class="skill-tab" data-category="cloud" data-cursor="FILTER">Cloud &amp; Systems</button>
+                        <button class="skill-tab" data-category="testing" data-cursor="FILTER">QA &amp; Testing</button>
+                        <button class="skill-tab" data-category="core" data-cursor="FILTER">Core CS</button>
+                    </div>
+                </div>
+
+                <!-- Skills Grid with All 10 Domains -->
+                <div class="skills-grid" id="skills-grid">
+                    <!-- 1. AI/ML & Agentic AI -->
+                    <div class="skill-category-card" data-cat="ai" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                            <div>
+                                <h3>AI/ML &amp; Agentic AI</h3>
+                                <span class="skill-count">20 Skills</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip">Anthropic Claude</span>
+                            <span class="skill-chip">Claude API</span>
+                            <span class="skill-chip">Claude Code</span>
+                            <span class="skill-chip featured">LangChain</span>
+                            <span class="skill-chip featured">LangGraph</span>
+                            <span class="skill-chip">OpenAI API</span>
+                            <span class="skill-chip">Hugging Face Transformers</span>
+                            <span class="skill-chip featured">RAG</span>
+                            <span class="skill-chip">Prompt Engineering</span>
+                            <span class="skill-chip featured">Agentic AI Workflows</span>
+                            <span class="skill-chip featured">LLM Evaluation</span>
+                            <span class="skill-chip featured">RLHF / SFT</span>
+                            <span class="skill-chip">Tool Calling</span>
+                            <span class="skill-chip">Prompt Orchestration</span>
+                            <span class="skill-chip">Embeddings</span>
+                            <span class="skill-chip featured">Knowledge Graphs</span>
+                            <span class="skill-chip">Vector DBs (FAISS, ChromaDB, Pinecone)</span>
+                            <span class="skill-chip">TensorFlow</span>
+                            <span class="skill-chip">PyTorch</span>
+                            <span class="skill-chip">PaddleOCR</span>
+                        </div>
+                    </div>
+
+                    <!-- 2. Programming Languages -->
+                    <div class="skill-category-card" data-cat="languages" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-code"></i></div>
+                            <div>
+                                <h3>Programming Languages</h3>
+                                <span class="skill-count">5 Core Languages</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">Python</span>
+                            <span class="skill-chip featured">C++</span>
+                            <span class="skill-chip featured">Java</span>
+                            <span class="skill-chip">TypeScript</span>
+                            <span class="skill-chip">SQL</span>
+                        </div>
+                    </div>
+
+                    <!-- 3. Backend & APIs -->
+                    <div class="skill-category-card" data-cat="backend" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-server"></i></div>
+                            <div>
+                                <h3>Backend &amp; APIs</h3>
+                                <span class="skill-count">10 Technologies</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">Node.js</span>
+                            <span class="skill-chip">Express.js</span>
+                            <span class="skill-chip featured">FastAPI</span>
+                            <span class="skill-chip">REST APIs</span>
+                            <span class="skill-chip">Microservices</span>
+                            <span class="skill-chip">API Design</span>
+                            <span class="skill-chip">Authentication &amp; Security</span>
+                            <span class="skill-chip featured">WebSockets</span>
+                            <span class="skill-chip">AsyncIO</span>
+                            <span class="skill-chip">Service-Oriented Architecture (SOA)</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Distributed Systems & Messaging -->
+                    <div class="skill-category-card" data-cat="cloud" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-network-wired"></i></div>
+                            <div>
+                                <h3>Distributed Systems &amp; Messaging</h3>
+                                <span class="skill-count">8 Technologies</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">Kafka</span>
+                            <span class="skill-chip">RabbitMQ</span>
+                            <span class="skill-chip featured">Redis</span>
+                            <span class="skill-chip">Azure Service Bus</span>
+                            <span class="skill-chip">Google Cloud Pub/Sub</span>
+                            <span class="skill-chip">Event-Driven Architecture</span>
+                            <span class="skill-chip">Message Queues</span>
+                            <span class="skill-chip">Concurrent Programming</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Data & Databases -->
+                    <div class="skill-category-card" data-cat="data" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-database"></i></div>
+                            <div>
+                                <h3>Data &amp; Databases</h3>
+                                <span class="skill-count">13 Technologies</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip">PostgreSQL</span>
+                            <span class="skill-chip">MySQL</span>
+                            <span class="skill-chip">SQL Server</span>
+                            <span class="skill-chip featured">MongoDB</span>
+                            <span class="skill-chip">BigQuery</span>
+                            <span class="skill-chip featured">Pandas</span>
+                            <span class="skill-chip">NumPy</span>
+                            <span class="skill-chip">ETL Pipelines</span>
+                            <span class="skill-chip">Data Transformation</span>
+                            <span class="skill-chip">Data Validation</span>
+                            <span class="skill-chip">Data Quality</span>
+                            <span class="skill-chip">Data Modeling</span>
+                            <span class="skill-chip">Batch &amp; Real-Time Processing</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. Cloud & Infrastructure -->
+                    <div class="skill-category-card" data-cat="cloud" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-cloud"></i></div>
+                            <div>
+                                <h3>Cloud &amp; Infrastructure</h3>
+                                <span class="skill-count">7 Platforms</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip">AWS</span>
+                            <span class="skill-chip">Azure</span>
+                            <span class="skill-chip">Google Cloud (GCP)</span>
+                            <span class="skill-chip featured">Docker</span>
+                            <span class="skill-chip featured">Kubernetes</span>
+                            <span class="skill-chip">Helm</span>
+                            <span class="skill-chip">CI/CD Pipelines</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. Testing & Quality Assurance -->
+                    <div class="skill-category-card" data-cat="testing" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-vial-circle-check"></i></div>
+                            <div>
+                                <h3>Testing &amp; Quality Assurance</h3>
+                                <span class="skill-count">16 Methodologies</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">REST Assured</span>
+                            <span class="skill-chip">Selenium</span>
+                            <span class="skill-chip featured">Playwright</span>
+                            <span class="skill-chip">Unit Testing</span>
+                            <span class="skill-chip">Integration Testing</span>
+                            <span class="skill-chip">End-to-End Testing</span>
+                            <span class="skill-chip">API Testing</span>
+                            <span class="skill-chip">Functional Testing</span>
+                            <span class="skill-chip">Regression Testing</span>
+                            <span class="skill-chip">Test Case Design</span>
+                            <span class="skill-chip">Automated Test Scripts</span>
+                            <span class="skill-chip">Defect Tracking</span>
+                            <span class="skill-chip">QTest</span>
+                            <span class="skill-chip">ALM</span>
+                            <span class="skill-chip">JIRA</span>
+                            <span class="skill-chip">Pytest</span>
+                            <span class="skill-chip">Jenkins</span>
+                        </div>
+                    </div>
+
+                    <!-- 8. Monitoring & Reliability -->
+                    <div class="skill-category-card" data-cat="cloud" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-chart-line"></i></div>
+                            <div>
+                                <h3>Monitoring &amp; Reliability</h3>
+                                <span class="skill-count">7 Frameworks</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">Prometheus</span>
+                            <span class="skill-chip featured">Grafana</span>
+                            <span class="skill-chip">OpenTelemetry</span>
+                            <span class="skill-chip">System Monitoring</span>
+                            <span class="skill-chip">Metrics Collection</span>
+                            <span class="skill-chip">Distributed Tracing</span>
+                            <span class="skill-chip">Performance Analysis &amp; Debugging</span>
+                        </div>
+                    </div>
+
+                    <!-- 9. Developer Tools -->
+                    <div class="skill-category-card" data-cat="backend" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-terminal"></i></div>
+                            <div>
+                                <h3>Developer Tools</h3>
+                                <span class="skill-count">8 Tools</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">Git</span>
+                            <span class="skill-chip">Linux / Unix</span>
+                            <span class="skill-chip">Bash &amp; Shell Scripting</span>
+                            <span class="skill-chip">GDB</span>
+                            <span class="skill-chip">GCC</span>
+                            <span class="skill-chip">Make</span>
+                            <span class="skill-chip">Valgrind</span>
+                            <span class="skill-chip">Wireshark</span>
+                        </div>
+                    </div>
+
+                    <!-- 10. Core CS -->
+                    <div class="skill-category-card" data-cat="core" data-tilt>
+                        <div class="card-head">
+                            <div class="cat-icon"><i class="fa-solid fa-microchip"></i></div>
+                            <div>
+                                <h3>Core Computer Science</h3>
+                                <span class="skill-count">9 Foundations</span>
+                            </div>
+                        </div>
+                        <div class="skill-chips-container">
+                            <span class="skill-chip featured">Data Structures &amp; Algorithms</span>
+                            <span class="skill-chip">OOP</span>
+                            <span class="skill-chip featured">Operating Systems</span>
+                            <span class="skill-chip">Computer Architecture</span>
+                            <span class="skill-chip featured">Networking (TCP/IP, HTTP/HTTPS)</span>
+                            <span class="skill-chip">Socket Programming</span>
+                            <span class="skill-chip">Multithreading &amp; Synchronization</span>
+                            <span class="skill-chip">Memory Management</span>
+                            <span class="skill-chip">Design Patterns</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievements Section -->
+            <section class="section achievements-section obys-section" id="achievements">
+                <span class="section-watermark" aria-hidden="true">06</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 06 &bull; COMPETITIVE BENCHMARKS</span>
+                    <span class="top-coords">RATINGS // CP_HONORS</span>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">NATIONAL &amp; GLOBAL METRICS</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">HONORS</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">&amp; ACHIEVEMENTS</span></span>
+                    </h2>
+                    <p class="section-subtitle">Demonstrated analytical power under pressure in national competitions and global algorithmic challenges.</p>
+                </div>
+
+                <!-- Competitive Programming Profiles Banner -->
+                <div class="cp-ratings-grid">
+                    <!-- Codeforces -->
+                    <div class="cp-card cf-card" data-tilt>
+                        <div class="cp-card-top">
+                            <div class="cp-platform">
+                                <i class="fa-solid fa-chart-simple"></i>
+                                <span>Codeforces</span>
+                            </div>
+                            <span class="cp-tier-badge expert">Expert</span>
+                        </div>
+                        <div class="cp-rating-number">1625</div>
+                        <p class="cp-detail">Maximum Rating &bull; <strong>300+</strong> Problems Solved</p>
+                        <div class="cp-highlight">
+                            <i class="bx bx-award"></i> Global Rank <strong>720 / 25,000</strong> in Codeforces Round 935
+                        </div>
+                        <a href="https://codeforces.com/profile/Ranit03" target="_blank" rel="noopener noreferrer" class="cp-link" data-cursor="CF">
+                            <span>View Profile</span> <i class="bx bx-link-external"></i>
+                        </a>
+                    </div>
+
+                    <!-- CodeChef -->
+                    <div class="cp-card cc-card" data-tilt>
+                        <div class="cp-card-top">
+                            <div class="cp-platform">
+                                <i class="fa-solid fa-code"></i>
+                                <span>CodeChef</span>
+                            </div>
+                            <span class="cp-tier-badge four-star">4-Star &starf;&starf;&starf;&starf;</span>
+                        </div>
+                        <div class="cp-rating-number">1811</div>
+                        <p class="cp-detail">Maximum Rating &bull; <strong>200+</strong> Problems Solved</p>
+                        <div class="cp-highlight">
+                            <i class="bx bx-award"></i> Global Rank <strong>185 / 3,000+</strong> in CodeChef Starters 113
+                        </div>
+                        <a href="https://www.codechef.com/users/ranitnandi021" target="_blank" rel="noopener noreferrer" class="cp-link" data-cursor="CC">
+                            <span>View Profile</span> <i class="bx bx-link-external"></i>
+                        </a>
+                    </div>
+
+                    <!-- LeetCode -->
+                    <div class="cp-card lc-card" data-tilt>
+                        <div class="cp-card-top">
+                            <div class="cp-platform">
+                                <i class="fa-solid fa-terminal"></i>
+                                <span>LeetCode</span>
+                            </div>
+                            <span class="cp-tier-badge leetcode">Top Rated</span>
+                        </div>
+                        <div class="cp-rating-number">1765</div>
+                        <p class="cp-detail">Maximum Rating &bull; <strong>200+</strong> Problems Solved</p>
+                        <div class="cp-highlight">
+                            <i class="bx bx-award"></i> Active problem solver across Advanced DSA &amp; Graphs
+                        </div>
+                        <a href="https://leetcode.com/u/Ranit03/" target="_blank" rel="noopener noreferrer" class="cp-link" data-cursor="LEET">
+                            <span>View Profile</span> <i class="bx bx-link-external"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Honors Cards Grid -->
+                <div class="achievements-grid">
+                    <!-- JEE Advanced -->
+                    <div class="achievement-card" data-tilt>
+                        <div class="ach-icon-box gold">
+                            <i class="fa-solid fa-trophy"></i>
+                        </div>
+                        <div class="ach-content">
+                            <div class="ach-badge">NATIONAL LEVEL &bull; TOP 1.9%</div>
+                            <h3>JEE Advanced 2022</h3>
+                            <p class="ach-rank">All India Rank: <strong>2913</strong> / 150,000+ Candidates</p>
+                            <p class="ach-desc">
+                                Demonstrated exceptional analytical, mathematical, and conceptual problem-solving skills under intense national competitive pressure to secure admission into the Computer Science program at IIT (ISM) Dhanbad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Flipkart GRiD 7.0 -->
+                    <div class="achievement-card" data-tilt>
+                        <div class="ach-icon-box purple">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <div class="ach-content">
+                            <div class="ach-badge">NATIONAL SEMI-FINALIST (2025)</div>
+                            <h3>Flipkart GRiD 7.0</h3>
+                            <p class="ach-rank">Top Engineering Teams Nationwide</p>
+                            <p class="ach-desc">
+                                Selected among premier collegiate teams across India in Flipkart's flagship national engineering and innovation competition, solving complex enterprise algorithmic problems.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Hackfest 2024 -->
+                    <div class="achievement-card" data-tilt>
+                        <div class="ach-icon-box blue">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <div class="ach-content">
+                            <div class="ach-badge">COLLEGIATE HACKATHON</div>
+                            <h3>Hackfest 2024</h3>
+                            <p class="ach-rank">10th Place Finish</p>
+                            <p class="ach-desc">
+                                Secured 10th position by overcoming stiff competition through rapid high-intensity collaborative software engineering, system architecture design, and competitive coding.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CodeChef Starters 113 -->
+                    <div class="achievement-card" data-tilt>
+                        <div class="ach-icon-box teal">
+                            <i class="fa-solid fa-medal"></i>
+                        </div>
+                        <div class="ach-content">
+                            <div class="ach-badge">GLOBAL CONTEST</div>
+                            <h3>CodeChef Starters 113</h3>
+                            <p class="ach-rank">Global Rank <strong>185</strong> / 3,000+ Participants</p>
+                            <p class="ach-desc">
+                                Achieved top percentile finish in a timed competitive programming contest featuring high-difficulty data structure and dynamic programming problem sets.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education Section -->
+            <section class="section education-section obys-section" id="education">
+                <span class="section-watermark" aria-hidden="true">07</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 07 &bull; ACADEMIC FOUNDATIONS</span>
+                    <span class="top-coords">DEGREE // BTECH_CSE</span>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">INSTITUTES OF NATIONAL IMPORTANCE</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">MY</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">EDUCATION</span></span>
+                    </h2>
+                    <p class="section-subtitle">Rigorous computer science curriculum and academic excellence from India's premier engineering institute.</p>
+                </div>
+
+                <div class="education-grid">
+                    <!-- IIT ISM Dhanbad -->
+                    <div class="edu-card featured-edu" data-tilt>
+                        <div class="edu-badge">PREMIER INSTITUTE</div>
+                        <div class="edu-header">
+                            <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                            <div>
+                                <span class="edu-year">2022 – 2026</span>
+                                <h3 class="edu-institution">Indian Institute of Technology (ISM) Dhanbad</h3>
+                                <h4 class="edu-degree">Bachelor of Technology in Computer Science and Engineering</h4>
+                                <p class="edu-location"><i class="bx bx-map"></i> Dhanbad, Jharkhand, India</p>
+                            </div>
+                        </div>
+                        <div class="edu-body">
+                            <div class="edu-score-pill">
+                                <span class="score-label">Cumulative GPA:</span>
+                                <span class="score-val">7.92 / 10.0</span>
+                            </div>
+                            <div class="edu-score-pill">
+                                <span class="score-label">Admission Number:</span>
+                                <span class="score-val copyable" data-copy="22JE0780" title="Click to copy" data-cursor="COPY">22JE0780 <i class="bx bx-copy-alt"></i></span>
+                            </div>
+                            <p class="edu-desc">
+                                Comprehensive study of core computer science fundamentals, algorithm design, operating systems, and distributed systems at one of India's Institutes of National Importance.
+                            </p>
+                            <div class="coursework-tags">
+                                <span class="tag">Data Structures &amp; Algorithms</span>
+                                <span class="tag">Operating Systems</span>
+                                <span class="tag">Database Management Systems</span>
+                                <span class="tag">Computer Networks (TCP/IP)</span>
+                                <span class="tag">Object Oriented Programming</span>
+                                <span class="tag">Computer Architecture</span>
+                                <span class="tag">Distributed Systems</span>
+                                <span class="tag">Theory of Computation</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- S.K.S Public School -->
+                    <div class="edu-card" data-tilt>
+                        <div class="edu-badge">SECONDARY EDUCATION</div>
+                        <div class="edu-header">
+                            <div class="edu-icon"><i class="fa-solid fa-school"></i></div>
+                            <div>
+                                <span class="edu-year">2020 – 2021</span>
+                                <h3 class="edu-institution">S.K.S Public School</h3>
+                                <h4 class="edu-degree">Higher Secondary (Class XII) &amp; Secondary (Class X)</h4>
+                                <p class="edu-location"><i class="bx bx-map"></i> Raniganj, West Bengal, India</p>
+                            </div>
+                        </div>
+                        <div class="edu-body">
+                            <div class="scores-row">
+                                <div class="edu-score-pill">
+                                    <span class="score-label">Class XII (Senior Secondary):</span>
+                                    <span class="score-val">94.0%</span>
+                                </div>
+                                <div class="edu-score-pill">
+                                    <span class="score-label">Class X (Secondary):</span>
+                                    <span class="score-val">93.6%</span>
+                                </div>
+                            </div>
+                            <p class="edu-desc">
+                                Strong analytical and mathematical foundations, maintaining consistent top academic ranks in Mathematics, Physics, and Computer Science.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="section contact-section obys-section" id="contact">
+                <span class="section-watermark" aria-hidden="true">08</span>
+                <div class="section-top-bar">
+                    <span class="top-tag">// SECTION 08 &bull; TRANSMISSION &amp; INQUIRY</span>
+                    <span class="top-coords">DISPATCH // READY</span>
+                </div>
+
+                <div class="section-header">
+                    <span class="section-tag">OPEN CHANNELS</span>
+                    <h2 class="heading kinetic-title">
+                        <span class="word-wrap"><span class="word-inner">GET</span></span>
+                        <span class="word-wrap"><span class="word-inner">IN</span></span>
+                        <span class="word-wrap"><span class="word-inner highlight-word">TOUCH</span></span>
+                    </h2>
+                    <p class="section-subtitle">Feel free to reach out for software engineering roles, research collaborations, or technical discussions.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <!-- Contact Information Cards -->
+                    <div class="contact-details">
+                        <div class="contact-card" data-tilt>
+                            <div class="contact-icon"><i class="bx bx-envelope"></i></div>
+                            <div class="contact-card-content">
+                                <h4>Email Transmission</h4>
+                                <a href="mailto:ranitnandi021@gmail.com" class="contact-link" data-cursor="MAIL">ranitnandi021@gmail.com</a>
+                                <button class="copy-pill-btn" data-copy="ranitnandi021@gmail.com" title="Copy Email" data-cursor="COPY">
+                                    <i class="bx bx-copy"></i> <span>Copy Email</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" data-tilt>
+                            <div class="contact-icon"><i class="bx bx-phone-call"></i></div>
+                            <div class="contact-card-content">
+                                <h4>Phone / Direct Line</h4>
+                                <a href="tel:+919932069790" class="contact-link" data-cursor="CALL">+91 9932069790</a>
+                                <button class="copy-pill-btn" data-copy="+919932069790" title="Copy Phone" data-cursor="COPY">
+                                    <i class="bx bx-copy"></i> <span>Copy Phone</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" data-tilt>
+                            <div class="contact-icon"><i class="bx bx-map-pin"></i></div>
+                            <div class="contact-card-content">
+                                <h4>Locations</h4>
+                                <p class="contact-location-text">
+                                    <strong>Campus:</strong> IIT (ISM) Dhanbad, Jharkhand, India<br>
+                                    <strong>Work / Research:</strong> Ghaziabad, NCR | Remote
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-social-box" data-tilt>
+                            <h4>Connect Across Networks</h4>
+                            <div class="social-links-grid">
+                                <a href="https://in.linkedin.com/in/ranit-nandi-b3396a255" target="_blank" rel="noopener noreferrer" class="social-pill" data-cursor="LINKEDIN">
+                                    <i class="bx bxl-linkedin"></i> <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/Ranit03" target="_blank" rel="noopener noreferrer" class="social-pill" data-cursor="GITHUB">
+                                    <i class="bx bxl-github"></i> <span>GitHub</span>
+                                </a>
+                                <a href="https://codeforces.com/profile/Ranit03" target="_blank" rel="noopener noreferrer" class="social-pill" data-cursor="CF">
+                                    <i class="fa-solid fa-chart-simple"></i> <span>Codeforces</span>
+                                </a>
+                                <a href="https://www.codechef.com/users/ranitnandi021" target="_blank" rel="noopener noreferrer" class="social-pill" data-cursor="CC">
+                                    <i class="fa-solid fa-code"></i> <span>CodeChef</span>
+                                </a>
+                                <a href="https://leetcode.com/u/Ranit03/" target="_blank" rel="noopener noreferrer" class="social-pill" data-cursor="LEET">
+                                    <i class="fa-solid fa-terminal"></i> <span>LeetCode</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Message Form -->
+                    <div class="contact-form-container" data-tilt>
+                        <form id="contact-form" class="contact-form">
+                            <div class="form-header">
+                                <h3>Send an Inquiry</h3>
+                                <p>Have an engineering challenge or opportunity? Drop a direct message.</p>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="form-name">Your Name</label>
+                                    <div class="input-with-icon">
+                                        <i class="bx bx-user"></i>
+                                        <input type="text" id="form-name" name="name" placeholder="John Doe" required data-cursor="TYPE">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="form-email">Your Email</label>
+                                    <div class="input-with-icon">
+                                        <i class="bx bx-envelope"></i>
+                                        <input type="email" id="form-email" name="email" placeholder="john@example.com" required data-cursor="TYPE">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-subject">Subject</label>
+                                <div class="input-with-icon">
+                                    <i class="bx bx-bookmark"></i>
+                                    <input type="text" id="form-subject" name="subject" placeholder="Opportunity / System Collaboration" required data-cursor="TYPE">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="form-message">Message</label>
+                                <div class="input-with-icon textarea-icon">
+                                    <i class="bx bx-message-detail"></i>
+                                    <textarea id="form-message" name="message" rows="5" placeholder="Hi Ranit, I would love to connect with you regarding..." required data-cursor="TYPE"></textarea>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="form-submit-btn" data-cursor="SEND">
+                                <span>DISPATCH MESSAGE</span>
+                                <i class="bx bx-send"></i>
+                            </button>
+
+                            <div id="form-status" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-container">
+                    <div class="footer-brand">
+                        <a href="#home" class="logo" data-cursor="TOP">
+                            <span class="logo-index">[RN_03]</span>
+                            <span class="logo-name">RANIT<span class="logo-dot">.</span>NANDI</span>
+                        </a>
+                        <p>Computer Science Engineer &bull; IIT (ISM) Dhanbad</p>
+                    </div>
+
+                    <div class="footer-center">
+                        <p>&copy; 2026 Ranit Nandi. All rights reserved.</p>
+                        <p class="footer-subtext">Architected with editorial grids, kinetic typography &amp; smooth momentum.</p>
+                    </div>
+
+                    <div class="footer-icon-top">
+                        <a href="#home" aria-label="Back to Top" title="Back to Top" data-cursor="TOP">
+                            <i class="bx bx-up-arrow-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Core Libraries: GSAP, ScrollTrigger, Lenis Smooth Scroll & Typed.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.9/dist/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <!-- Custom JS -->
+    <script src="stars.js"></script>
     <script src="script.js"></script>
-    <canvas id="starCanvas"></canvas>
-    <div class="cursor"></div>
-    <div class="cursor-inner"></div>
 </body>
-
 </html>
